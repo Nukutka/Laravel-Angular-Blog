@@ -16,16 +16,13 @@ class PostRequest extends FormRequest
         $postRules = [
             'title' => 'required|string',
             'body' => 'required|string',
-            'category_id' => 'required|integer|exists:categories,id',
-            'user_id' => 'required|integer|exists:users,id'
+            'category_id' => 'required|integer|exists:categories,id'
         ];
 
         $putRules = [
             'title' => 'required|string',
             'body' => 'required|string',
-            'category_id' => 'required|integer|exists:categories,id', 
-            'user_id' => 'required|integer|exists:users,id'
-            // TODO: сделать внешние ключи неизменными для юзеров ?
+            'category_id' => 'required|integer|exists:categories,id'
         ];
   
         switch ($this->getMethod())
