@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'body', 'category_id', 'user_id'];
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $fillable = ['id','title', 'body', 'category_id', 'user_id','created_at'];
+    protected $hidden = ['updated_at'];
 }

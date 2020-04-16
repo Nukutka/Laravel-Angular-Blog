@@ -20,8 +20,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::put('categories/{category_id}', 'CategoryController@update');     
  });
 
- Route::get('categories/{category_id}', 'CategoryController@show');  
- Route::get('categories', 'CategoryController@index');  
+ Route::get('posts/{post_id}', 'PostController@show');  
+ Route::get('posts', 'PostController@index');  
 
  Route::get('categories/{category_id}', 'CategoryController@show');  
  Route::get('categories', 'CategoryController@index'); 

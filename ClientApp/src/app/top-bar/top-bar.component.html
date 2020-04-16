@@ -1,0 +1,11 @@
+<a [routerLink]="['/']">
+  <h1>Blog</h1>
+</a>
+
+<a class="button" routerLink="create_post" routerLinkActive="active" *ngIf="authService.logIn">New post</a>
+
+<div class="row">
+  <a class="button fancy-button" routerLink="login" routerLinkActive="active" *ngIf="!authService.logIn">Sign In</a>
+  <a class="button fancy-button" *ngIf="!authService.logIn">Sign Up</a>
+  <a class="button fancy-button" (click)="authService.logout()" href="#" *ngIf="authService.logIn">Sign Out</a>
+</div>

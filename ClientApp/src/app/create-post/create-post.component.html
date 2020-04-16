@@ -1,0 +1,25 @@
+<h3>New post</h3>
+<div>
+  <div class="spacer">
+    <label for="Title">Title</label>
+    <input type="text" placeholder="Title" [(ngModel)]="title">
+  </div>
+  <div class="spacer">
+    <label for="body">Body</label>
+    <input type="body" placeholder="Body" [(ngModel)]="body">
+  </div>
+  <div class="spacer">
+    <label for="exampleFormControlSelect1">Category</label>
+    <div class="form-group">
+    <select id="category-select" class="form-control" [(ngModel)]="selected_category">
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{category.name}}
+      </option>
+    </select>
+  </div>
+  <br>
+  </div>
+  <div class="spacer">
+    <button type="submit" (click)="Create()">Create</button>
+  </div>
+</div>

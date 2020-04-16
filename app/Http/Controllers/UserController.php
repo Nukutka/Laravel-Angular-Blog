@@ -37,13 +37,15 @@ class UserController extends Controller
     public function loginUser(UserLoginRequest $request) 
     {
         $request->validated();
-        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+        if(Auth::guard('web')->attempt(['email' => request('email'), 'password' => request('password')])) {
 
-            $user = Auth::user();
+            $user = Auth::guard('web')->user();
 
             $token = $user->createToken('token')->accessToken;
             $success['success'] = true;
             $success['message'] = "Success! you are logged in successfully";
+            $success['user_name'] = $user->name;
+            $success['user_id'] = $user->id;
             $success['token'] = $token;
 
             return response()->json(['success' => $success ], $this->successStatus);
