@@ -52,7 +52,9 @@ class UserController extends Controller
         }
 
         else {
-            return response()->json(['error'=>'Unauthorized'], 401);
+            $success['success'] = false;
+            $success['message'] = 'Incorrect username or password.';
+            return response()->json(['success' => $success ], 401);
         }
     }
 }

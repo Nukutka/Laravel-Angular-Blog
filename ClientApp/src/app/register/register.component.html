@@ -1,5 +1,9 @@
-<h3>Sign In</h3>
+<h3>Sign Up</h3>
 <div class="col-md-3">
+    <div class="spacer">
+        <label for="Name">Name</label>
+        <input type="text" placeholder="Name" [(ngModel)]="name" class="form-control">
+    </div>
   <div class="spacer">
     <label for="Email">Email</label>
     <input type="text" placeholder="Email" [(ngModel)]="email" class="form-control">
@@ -9,6 +13,6 @@
     <input type="password" placeholder="Password" [(ngModel)]="password" class="form-control"/>
   </div>
   <div class="spacer">
-    <button type="submit" class="btn btn-primary" (click)="Login()">Login</button>
+    <button type="submit" class="btn btn-primary" (click)="Register()">Register</button>
   </div>
 </div>

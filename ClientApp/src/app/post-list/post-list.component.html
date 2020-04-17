@@ -1,7 +1,25 @@
 <h2>Posts</h2>
 <div *ngFor="let post of posts">
 
-    <h3>
+  <div class="card">
+    <div class="card-header">
+      {{ post.created_at | date: 'dd/MM/yyyy H:mm' }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">
+        <a [title]="post.title + ' details'">
+          {{ post.title }}
+        </a>
+      </h5>
+      <p class="card-text" *ngIf="post.body">
+        {{ post.body }}
+      </p>
+      <a href="#" class="card-link" [routerLink]="['edit_post', post.id]" *ngIf="check(post)">Edit</a>
+    </div>
+  </div> 
+  <br/>
+
+    <!-- <h3>
         <a [title]="post.title + ' details'">
           {{ post.title }}
         </a>
@@ -13,6 +31,6 @@
 
       <p *ngIf="post.created_at">
         {{ post.created_at }}
-      </p>
+      </p> -->
   
   </div>

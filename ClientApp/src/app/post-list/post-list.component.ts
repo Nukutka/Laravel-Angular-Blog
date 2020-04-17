@@ -10,10 +10,16 @@ import { HttpService } from '../data.service';
 })
 export class PostListComponent { 
   posts: Post[]=[];
+  user_id: number;
      
-    constructor(private httpService: HttpService){}
+  constructor(private httpService: HttpService){}
 
-    ngOnInit(){     
-      this.httpService.getPosts().subscribe(data => this.posts=data);
+  ngOnInit(){     
+    this.httpService.getPosts().subscribe(data => this.posts=data);
+    this.user_id = +localStorage.getItem('user_id');
+  }
+
+  check(post: Post): boolean {
+    return (+localStorage.getItem('user_id') == post.user_id);
   }
 }

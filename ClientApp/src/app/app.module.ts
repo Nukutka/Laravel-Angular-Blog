@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { PostListComponent } from './post-list/post-list.component';
 
-import { HttpClientModule }   from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }   from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+
+import { AuthInterceptor } from './authconfig.interceptor';
 
 
 import { FormsModule }   from '@angular/forms';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   imports: [
@@ -22,7 +26,9 @@ import { CreatePostComponent } from './create-post/create-post.component';
     RouterModule.forRoot([
       { path: '', component: PostListComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
       { path: 'create_post', component: CreatePostComponent },
+      { path: 'edit_post/:id', component: EditPostComponent },
     ]),
     HttpClientModule
   ],
@@ -31,7 +37,16 @@ import { CreatePostComponent } from './create-post/create-post.component';
     TopBarComponent,
     PostListComponent,
     LoginComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    EditPostComponent,
+    RegisterComponent
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [ AppComponent ]
 })

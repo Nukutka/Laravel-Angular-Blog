@@ -1,4 +1,4 @@
-<h3>New post</h3>
+<h3>Edit post</h3>
 <div class="col-md-8">
   <div class="spacer">
     <label for="Title">Title</label>
@@ -6,7 +6,7 @@
   </div>
   <div class="spacer">
     <label for="body">Body</label>
-    <textarea class="form-control" rows="3" placeholder="Body" [(ngModel)]="body"></textarea>
+    <textarea class="form-control" rows="5" placeholder="Body" [(ngModel)]="body"></textarea>
   </div>
   <div class="spacer">
     <label for="exampleFormControlSelect1">Category</label>
@@ -17,9 +17,15 @@
       </option>
     </select>
   </div>
-  <br>
   </div>
   <div class="spacer">
-    <button type="submit" class="btn btn-primary" (click)="Create()">Create</button>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <button type="submit" class="btn btn-primary" (click)="Update()">Update</button>
+      </div>
+     <div class="col-12 col-md-6 text-right">
+        <button type="submit" class="btn btn-danger" (click)="Delete()">Delete</button>
+      </div>
+    </div>
   </div>
 </div>
